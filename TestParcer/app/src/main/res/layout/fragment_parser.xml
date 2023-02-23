@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/resultRcView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideLine">
+
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Result"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/guideLine"/>
+
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnDownloadGSON"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Download file GSON"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideLine"/>
+
+    <Button
+        android:id="@+id/btnOpenFileGSON"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Open file GSON"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@+id/btnDownloadGSON"
+        app:layout_constraintStart_toStartOf="@id/btnDownloadGSON"
+        app:layout_constraintTop_toBottomOf="@id/btnDownloadGSON" />
+
+    <Button
+        android:id="@+id/btnParserGSON"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Parser file GSON"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@+id/btnDownloadGSON"
+        app:layout_constraintStart_toStartOf="@id/btnDownloadGSON"
+        app:layout_constraintTop_toBottomOf="@id/btnOpenFileGSON"/>
+
+    <Button
+        android:id="@+id/btnDownloadXML"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textAllCaps="false"
+        android:text="Download file XML"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideLine"/>
+
+    <Button
+        android:id="@+id/btnOpenFileXML"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Open file XML"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@id/btnDownloadXML"
+        app:layout_constraintStart_toStartOf="@+id/btnDownloadXML"
+        app:layout_constraintTop_toBottomOf="@id/btnDownloadXML"/>
+
+    <Button
+        android:id="@+id/btnParserFileXML"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Parser file XML"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@id/btnDownloadXML"
+        app:layout_constraintStart_toStartOf="@+id/btnDownloadXML"
+        app:layout_constraintTop_toBottomOf="@id/btnOpenFileXML"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
