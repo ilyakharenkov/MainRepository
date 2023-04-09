@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.testfragment.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), Navigator {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -24,6 +24,22 @@ class MainActivity : AppCompatActivity() {
             .add(R.id.container_activity, fragment)
             .setReorderingAllowed(true)
             .commit()
+    }
+
+    override fun navigationToOne() {
+
+    }
+
+    override fun navigationToTwo() {
+
+    }
+
+    override fun navigationToThree() {
+
+    }
+
+    override fun navigationToBack() {
+
     }
 
 
