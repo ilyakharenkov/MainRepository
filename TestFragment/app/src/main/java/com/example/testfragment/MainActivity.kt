@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.testfragment.databinding.ActivityMainBinding
 import com.example.testfragment.fragments.OneFragment
+import com.example.testfragment.fragments.ThreeFragment
+import com.example.testfragment.fragments.TwoFragment
 
 class MainActivity : AppCompatActivity(), Navigator {
 
@@ -28,6 +30,23 @@ class MainActivity : AppCompatActivity(), Navigator {
     }
 
     override fun navigationToOne() {
+        replaceFragment(fragment = OneFragment.newInstance())
+    }
+
+    override fun navigationToTwo() {
+        replaceFragment(fragment = TwoFragment.newInstance())
+
+    }
+
+    override fun navigationToThree() {
+        replaceFragment(fragment = ThreeFragment.newInstance())
+    }
+
+    override fun navigationToBack() {
+
+    }
+
+    private fun replaceFragment(fragment: Fragment){
         supportFragmentManager.fragments.find {
             it is ContainerFragment
         }?.run {
@@ -35,22 +54,11 @@ class MainActivity : AppCompatActivity(), Navigator {
         }?.run {
             childFragmentManager
                 .beginTransaction()
-                .replace(R.id.container_fragment_view, OneFragment.newInstance())
-                .setReorderingAllowed(true).addToBackStack(null)
+                .replace(R.id.container_fragment_view, fragment)
+                .addToBackStack(null)
+                .setReorderingAllowed(true)
                 .commit()
         }
-    }
-
-    override fun navigationToTwo() {
-
-    }
-
-    override fun navigationToThree() {
-
-    }
-
-    override fun navigationToBack() {
-
     }
 
 
