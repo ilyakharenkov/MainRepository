@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.testfragment.databinding.ActivityMainBinding
+import com.example.testfragment.fragments.OneFragment
 
 class MainActivity : AppCompatActivity(), Navigator {
 
@@ -13,7 +14,7 @@ class MainActivity : AppCompatActivity(), Navigator {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        if(savedInstanceState == null){
+        if (savedInstanceState == null) {
             addFragmentActivity(fragment = ContainerFragment.newInstance())
         }
     }
@@ -27,7 +28,17 @@ class MainActivity : AppCompatActivity(), Navigator {
     }
 
     override fun navigationToOne() {
-
+        supportFragmentManager.fragments.find {
+            it is ContainerFragment
+        }?.run {
+            this as ContainerFragment
+        }?.run {
+            childFragmentManager
+                .beginTransaction()
+                .replace(R.id.container_fragment_view, OneFragment.newInstance())
+                .setReorderingAllowed(true).addToBackStack(null)
+                .commit()
+        }
     }
 
     override fun navigationToTwo() {
