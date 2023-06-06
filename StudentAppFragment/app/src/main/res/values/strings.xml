@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">StudentAppFragment</string>
+    <string name="description_image_view">Image View</string>
+    <string name="description_image_button">Image Button</string>
+    <!-- activity_student_details -->
+    <string name="activity_student_details_1">Name Student</string>
+    <string name="activity_student_details_2">Age</string>
+    <string name="activity_student_details_3">Age student</string>
+    <string name="activity_student_details_4">Edit profile</string>
+    <string name="activity_student_details_5">Delete profile</string>
+    <!-- activity_student_edit -->
+    <string name="activity_student_edit_1">Edit Profile</string>
+    <string name="activity_student_edit_2">Photo link</string>
+    <string name="activity_student_edit_3">Name</string>
+    <string name="activity_student_edit_4">Age</string>
+    <string name="activity_student_edit_5">Save</string>
+    <!-- item_student -->
+    <string name="item_student_1">Name Student</string>
+</resources>
