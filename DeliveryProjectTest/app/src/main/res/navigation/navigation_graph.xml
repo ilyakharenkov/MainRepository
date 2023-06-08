@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_application"
+    app:startDestination="@id/mainScreenFragment">
+
+    <fragment
+        android:id="@+id/basketScreenFragment"
+        android:name="com.example.deliveryprojecttest.presentation.screens.BasketScreenFragment"
+        android:label="BasketScreenFragment" >
+        <action
+            android:id="@+id/action_basketScreenFragment_to_categoryScreenFragment"
+            app:destination="@id/categoryScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryScreenFragment"
+        android:name="com.example.deliveryprojecttest.presentation.screens.CategoryScreenFragment"
+        android:label="CategoryScreenFragment" >
+        <action
+            android:id="@+id/action_categoryScreenFragment_to_mainScreenFragment"
+            app:destination="@id/mainScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainScreenFragment"
+        android:name="com.example.deliveryprojecttest.presentation.screens.MainScreenFragment"
+        android:label="MainScreenFragment" >
+        <action
+            android:id="@+id/action_mainScreenFragment_to_productScreenFragment"
+            app:destination="@id/productScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productScreenFragment"
+        android:name="com.example.deliveryprojecttest.presentation.screens.ProductScreenFragment"
+        android:label="ProductScreenFragment" >
+        <action
+            android:id="@+id/action_productScreenFragment_to_basketScreenFragment"
+            app:destination="@id/basketScreenFragment" />
+    </fragment>
+</navigation>
