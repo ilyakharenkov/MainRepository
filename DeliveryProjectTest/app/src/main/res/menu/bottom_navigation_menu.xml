@@ -2,19 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/btnHome"
+        android:id="@+id/navigation_test"
         android:icon="@drawable/ic_home"
         android:title="Home"/>
     <item
-        android:id="@+id/btnSearch"
+        android:id="@+id/searchScreenFragment"
         android:icon="@drawable/ic_search"
         android:title="Search" />
     <item
-        android:id="@+id/btnBasket"
+        android:id="@+id/basketScreenFragment"
         android:icon="@drawable/ic_basket"
         android:title="Basket" />
     <item
-        android:id="@+id/btnAccount"
+        android:id="@+id/accountScreenFragment"
         android:icon="@drawable/ic_account"
         android:title="Account" />
 </menu>

@@ -19,10 +19,10 @@ class CategoryScreenFragment : Fragment(R.layout.fragment_category_screen) {
 
     private fun initButton(){
         binding.btnOne.setOnClickListener {
-
+            findNavController().navigate(R.id.action_categoryScreenFragment_to_productScreenFragment)
         }
         binding.btnTwo.setOnClickListener {
-
+            findNavController().popBackStack()
         }
     }
 }

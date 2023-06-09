@@ -1,9 +1,7 @@
 package com.example.deliveryprojecttest.presentation.screens
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.deliveryprojecttest.R
@@ -19,13 +17,12 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
         initButton()
     }
 
-    private fun initButton(){
+    private fun initButton() {
         binding.btnOne.setOnClickListener {
-
+            findNavController().navigate(R.id.action_mainScreenFragment_to_categoryScreenFragment)
         }
         binding.btnTwo.setOnClickListener {
 
         }
     }
-
 }

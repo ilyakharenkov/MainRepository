@@ -22,7 +22,7 @@ class ProductScreenFragment : Fragment(R.layout.fragment_product_screen) {
 
         }
         binding.btnTwo.setOnClickListener {
-
+            findNavController().popBackStack()
         }
     }
 }

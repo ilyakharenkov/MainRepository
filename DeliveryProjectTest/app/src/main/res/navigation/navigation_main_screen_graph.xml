@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_test"
+    app:startDestination="@id/mainScreenFragment">
+
+    <fragment
+        android:id="@+id/mainScreenFragment"
+        android:name="com.example.deliveryprojecttest.presentation.screens.MainScreenFragment"
+        android:label="MainScreenFragment"
+        tools:layout="@layout/fragment_main_screen">
+        <action
+            android:id="@+id/action_mainScreenFragment_to_categoryScreenFragment"
+            app:destination="@id/categoryScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryScreenFragment"
+        android:name="com.example.deliveryprojecttest.presentation.screens.CategoryScreenFragment"
+        android:label="CategoryScreenFragment"
+        tools:layout="@layout/fragment_category_screen">
+        <action
+            android:id="@+id/action_categoryScreenFragment_to_productScreenFragment"
+            app:destination="@id/productScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productScreenFragment"
+        android:name="com.example.deliveryprojecttest.presentation.screens.ProductScreenFragment"
+        android:label="ProductScreenFragment"
+        tools:layout="@layout/fragment_product_screen"/>
+</navigation>
