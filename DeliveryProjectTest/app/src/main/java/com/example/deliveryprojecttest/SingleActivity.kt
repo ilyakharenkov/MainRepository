@@ -14,10 +14,4 @@ class SingleActivity : AppCompatActivity() {
         binding = ActivitySingleBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
-
-    private fun test() {
-        supportFragmentManager.beginTransaction()
-            .add(R.id.single_activity_view, ContainerFragment())
-            .commit()
-    }
 }
