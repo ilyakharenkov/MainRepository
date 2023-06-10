@@ -21,7 +21,6 @@ class BasketViewModel(private val getCategoriesUseCase: GetCategoriesUseCase) : 
 
     private fun getCategories() {
         viewModelScope.launch {
-//            _categories.value = Di.repository.getCategory()
             _categories.value = getCategoriesUseCase.execute()
         }
     }

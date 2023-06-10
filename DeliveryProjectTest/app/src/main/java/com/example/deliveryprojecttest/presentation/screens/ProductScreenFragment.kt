@@ -17,7 +17,7 @@ class ProductScreenFragment : Fragment(R.layout.fragment_product_screen) {
         initButton()
     }
 
-    private fun initButton(){
+    private fun initButton() {
         binding.btnOne.setOnClickListener {
 
         }

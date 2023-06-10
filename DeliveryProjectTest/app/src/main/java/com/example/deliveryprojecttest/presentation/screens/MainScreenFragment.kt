@@ -19,7 +19,9 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
 
     private fun initButton() {
         binding.btnOne.setOnClickListener {
-            findNavController().navigate(R.id.action_mainScreenFragment_to_categoryScreenFragment)
+            findNavController().navigate(
+                R.id.action_mainScreenFragment_to_categoryScreenFragment
+            )
         }
         binding.btnTwo.setOnClickListener {
 
