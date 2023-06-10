@@ -1,4 +1,4 @@
-package com.example.deliveryprojecttest.data.repository.model
+package com.example.deliveryprojecttest.domain.model
 
 data class Categories(
     val id: Int,

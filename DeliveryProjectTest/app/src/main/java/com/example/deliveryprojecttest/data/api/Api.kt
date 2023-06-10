@@ -1,6 +1,6 @@
 package com.example.deliveryprojecttest.data.api
 
-import com.example.deliveryprojecttest.data.repository.model.ResponseCategories
+import com.example.deliveryprojecttest.domain.model.ResponseCategories
 import retrofit2.http.GET
 
 interface Api {
