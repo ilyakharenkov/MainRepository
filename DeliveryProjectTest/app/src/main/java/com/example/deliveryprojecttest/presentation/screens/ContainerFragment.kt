@@ -2,11 +2,9 @@ package com.example.deliveryprojecttest.presentation.screens
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.navOptions
 import androidx.navigation.ui.NavigationUI
 import com.example.deliveryprojecttest.R
 import com.example.deliveryprojecttest.databinding.FragmentContainerBinding
