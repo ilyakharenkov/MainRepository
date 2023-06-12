@@ -1,8 +1,10 @@
 package com.example.deliveryprojecttest.presentation.screens
 
+import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.os.Bundle
 import android.view.View
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,14 +16,17 @@ import com.example.deliveryprojecttest.databinding.FragmentMainScreenBinding
 import com.example.deliveryprojecttest.presentation.screens.adapter.MainScreenAdapter
 import com.example.deliveryprojecttest.presentation.screens.mvvm.MainViewModel
 import com.example.deliveryprojecttest.presentation.screens.mvvm.MainViewModelFactory
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
+import java.text.SimpleDateFormat
+import java.util.Date
 import java.util.Locale
 
 class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
 
+
     private lateinit var binding: FragmentMainScreenBinding
     private lateinit var adapter: MainScreenAdapter
+
+
 
     private val viewModel: MainViewModel by viewModels {
         MainViewModelFactory(getCategoriesUseCase = Di.getCategoriesUseCase)
@@ -34,7 +39,6 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
         initObserver()
         initPhoto()
         initDataCalendar()
-        location()
     }
 
     private fun initAdapter() {
@@ -49,9 +53,6 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
         }
     }
 
-    private fun location() {
-        test(lat = 55.751244, long = 37.618423)
-    }
 
     private fun test(lat: Double, long: Double) {
         val geoCoder = Geocoder(requireContext(), Locale.getDefault())
@@ -61,8 +62,9 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
     }
 
     private fun initDataCalendar() {
-        val data = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd MMM, yyyy"))
-        binding.locationData.text = data
+        val formatter = SimpleDateFormat("dd MMM, yyyy", Locale.getDefault())
+        val time = formatter.format(Date())
+        binding.locationData.text = time
     }
 
     private fun initPhoto() {
@@ -74,6 +76,8 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
             .error(R.drawable.account_image)
             .into(binding.userPhoto)
     }
+
+
 }
 
 
