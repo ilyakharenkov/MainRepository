@@ -1,15 +1,11 @@
 package com.example.deliveryprojecttest.presentation.screens
 
-import android.graphics.drawable.GradientDrawable.Orientation
 import android.os.Bundle
 import android.view.View
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.deliveryprojecttest.Di
 import com.example.deliveryprojecttest.R
 import com.example.deliveryprojecttest.databinding.FragmentCategoryScreenBinding
@@ -54,7 +50,9 @@ class CategoryScreenFragment : Fragment(R.layout.fragment_category_screen) {
         }
         viewModel.listTags.observe(viewLifecycleOwner){
             adapterTeg.list = it
+            Toast.makeText(requireContext(), "$it", Toast.LENGTH_LONG).show()
         }
+
     }
 
 }

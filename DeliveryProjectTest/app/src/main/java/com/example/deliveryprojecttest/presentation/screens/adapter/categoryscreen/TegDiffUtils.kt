@@ -2,8 +2,9 @@ package com.example.deliveryprojecttest.presentation.screens.adapter.categoryscr
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.deliveryprojecttest.domain.model.Dishes
+import com.example.deliveryprojecttest.domain.model.TestModel
 
-class TegDiffUtils(private val oldList: List<String>, private val newList: List<String>) :
+class TegDiffUtils(private val oldList: List<TestModel>, private val newList: List<TestModel>) :
     DiffUtil.Callback() {
 
     override fun getOldListSize(): Int {

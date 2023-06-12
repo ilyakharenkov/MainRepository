@@ -7,10 +7,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.deliveryprojecttest.databinding.ItemTegBinding
 import com.example.deliveryprojecttest.domain.model.Dishes
+import com.example.deliveryprojecttest.domain.model.TestModel
 
 class CategoryScreenTegAdapter : RecyclerView.Adapter<CategoryScreenTegAdapter.CategoryScreenTegViewHolder>() {
 
-    var list: List<String> = emptyList()
+    var list: List<TestModel> = emptyList()
         set(value){
             val tegDiffUtils = TegDiffUtils(field, value)
             val diffUtils = DiffUtil.calculateDiff(tegDiffUtils)
@@ -22,8 +23,8 @@ class CategoryScreenTegAdapter : RecyclerView.Adapter<CategoryScreenTegAdapter.C
 
         private val binding = ItemTegBinding.bind(view)
 
-        fun bind(dishes: String){
-            binding.textViewTeg.text = dishes
+        fun bind(dishes: TestModel){
+            binding.textViewTeg.text = dishes.text
         }
 
     }
