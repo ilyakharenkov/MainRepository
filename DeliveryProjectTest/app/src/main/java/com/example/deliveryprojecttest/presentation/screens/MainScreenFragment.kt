@@ -1,10 +1,8 @@
 package com.example.deliveryprojecttest.presentation.screens
 
-import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.os.Bundle
 import android.view.View
-import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,11 +20,8 @@ import java.util.Locale
 
 class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
 
-
     private lateinit var binding: FragmentMainScreenBinding
     private lateinit var adapter: MainScreenAdapter
-
-
 
     private val viewModel: MainViewModel by viewModels {
         MainViewModelFactory(getCategoriesUseCase = Di.getCategoriesUseCase)
@@ -53,14 +48,6 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
         }
     }
 
-
-    private fun test(lat: Double, long: Double) {
-        val geoCoder = Geocoder(requireContext(), Locale.getDefault())
-        geoCoder.getFromLocation(lat, long, 1) {
-            binding.locationCity.text = it[0].adminArea
-        }
-    }
-
     private fun initDataCalendar() {
         val formatter = SimpleDateFormat("dd MMM, yyyy", Locale.getDefault())
         val time = formatter.format(Date())
@@ -75,6 +62,13 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
             .circleCrop()
             .error(R.drawable.account_image)
             .into(binding.userPhoto)
+    }
+
+    private fun test(lat: Double, long: Double) {
+        val geoCoder = Geocoder(requireContext(), Locale.getDefault())
+        geoCoder.getFromLocation(lat, long, 1) {
+            binding.locationCity.text = it[0].adminArea
+        }
     }
 
 
