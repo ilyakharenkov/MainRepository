@@ -1,4 +1,4 @@
-package com.example.deliveryprojecttest.presentation.screens.adapter
+package com.example.deliveryprojecttest.presentation.screens.adapter.mainscreen
 
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
@@ -16,7 +16,7 @@ import com.example.deliveryprojecttest.R
 import com.example.deliveryprojecttest.databinding.ItemCategoriesBinding
 import com.example.deliveryprojecttest.domain.model.Categories
 
-class MainScreenAdapter : RecyclerView.Adapter<MainScreenAdapter.MainScreenViewHolder>() {
+class MainScreenAdapter(private val click: () -> Unit) : RecyclerView.Adapter<MainScreenAdapter.MainScreenViewHolder>() {
 
     var listCategories: List<Categories> = listOf()
         set(value) {
@@ -30,7 +30,7 @@ class MainScreenAdapter : RecyclerView.Adapter<MainScreenAdapter.MainScreenViewH
 
         private val binding: ItemCategoriesBinding = ItemCategoriesBinding.bind(view)
 
-        fun bind(categories: Categories) {
+        fun bind(categories: Categories, click: () -> Unit) {
 
             Glide
                 .with(binding.imageBackground.context)
@@ -47,6 +47,7 @@ class MainScreenAdapter : RecyclerView.Adapter<MainScreenAdapter.MainScreenViewH
                         binding.progressBar.visibility = View.INVISIBLE
                         return false
                     }
+
                     override fun onResourceReady(
                         resource: Drawable?,
                         model: Any?,
@@ -62,6 +63,10 @@ class MainScreenAdapter : RecyclerView.Adapter<MainScreenAdapter.MainScreenViewH
                 .into(binding.imageBackground)
 
             binding.nameCategories.text = categories.name
+
+            itemView.setOnClickListener {
+                click()
+            }
         }
     }
 
@@ -76,7 +81,7 @@ class MainScreenAdapter : RecyclerView.Adapter<MainScreenAdapter.MainScreenViewH
     }
 
     override fun onBindViewHolder(mainScreenViewHolder: MainScreenViewHolder, position: Int) {
-        mainScreenViewHolder.bind(categories = listCategories[position])
+        mainScreenViewHolder.bind(categories = listCategories[position], click = click)
     }
 
 }

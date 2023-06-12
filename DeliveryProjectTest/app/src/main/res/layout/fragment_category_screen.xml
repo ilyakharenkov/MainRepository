@@ -5,6 +5,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/locationIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="Description"
+        android:layout_margin="5dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/rcViewTeg"/>
+
+    <TextView
+        android:id="@+id/locationCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Category name"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/userPhoto"
+        app:layout_constraintStart_toEndOf="@id/locationIcon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/rcViewTeg"/>
+
+    <ImageView
+        android:id="@+id/userPhoto"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="5dp"
+        android:contentDescription="Description"
+        android:src="@drawable/account_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcViewTeg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/userPhoto"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcViewDishes"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/rcViewTeg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

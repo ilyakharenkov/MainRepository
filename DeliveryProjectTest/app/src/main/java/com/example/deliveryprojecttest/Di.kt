@@ -4,6 +4,7 @@ import com.example.deliveryprojecttest.data.api.Api
 import com.example.deliveryprojecttest.domain.repository.Repository
 import com.example.deliveryprojecttest.data.repository.RepositoryImpl
 import com.example.deliveryprojecttest.domain.usecase.GetCategoriesUseCase
+import com.example.deliveryprojecttest.domain.usecase.GetDishesUseCase
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -14,6 +15,10 @@ object Di {
 
     val getCategoriesUseCase by lazy {
         GetCategoriesUseCase(repository = repository)
+    }
+
+    val getDishesUseCase by lazy {
+        GetDishesUseCase(repository = repository)
     }
 
     private val repository: Repository by lazy {

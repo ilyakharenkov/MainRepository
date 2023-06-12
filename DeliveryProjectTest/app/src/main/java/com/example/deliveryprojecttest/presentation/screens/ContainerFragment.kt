@@ -25,4 +25,5 @@ class ContainerFragment : Fragment(R.layout.fragment_container) {
     private fun initBottomNavigationView() {
         NavigationUI.setupWithNavController(binding.bottomNavigationView, navController)
     }
+
 }

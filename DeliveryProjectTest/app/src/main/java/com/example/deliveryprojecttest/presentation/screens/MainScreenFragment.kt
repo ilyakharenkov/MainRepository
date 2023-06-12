@@ -5,13 +5,14 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.deliveryprojecttest.Di
 import com.example.deliveryprojecttest.R
 import com.example.deliveryprojecttest.databinding.FragmentMainScreenBinding
-import com.example.deliveryprojecttest.presentation.screens.adapter.MainScreenAdapter
+import com.example.deliveryprojecttest.presentation.screens.adapter.mainscreen.MainScreenAdapter
 import com.example.deliveryprojecttest.presentation.screens.mvvm.MainViewModel
 import com.example.deliveryprojecttest.presentation.screens.mvvm.MainViewModelFactory
 import java.text.SimpleDateFormat
@@ -37,7 +38,9 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
     }
 
     private fun initAdapter() {
-        adapter = MainScreenAdapter()
+        adapter = MainScreenAdapter(click = {
+            findNavController().navigate(R.id.action_mainScreenFragment_to_categoryScreenFragment)
+        })
         binding.rcViewMainScreen.layoutManager = LinearLayoutManager(requireContext())
         binding.rcViewMainScreen.adapter = adapter
     }

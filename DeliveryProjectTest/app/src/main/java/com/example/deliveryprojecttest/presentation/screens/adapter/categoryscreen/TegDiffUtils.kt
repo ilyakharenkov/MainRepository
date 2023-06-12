@@ -1,9 +1,10 @@
-package com.example.deliveryprojecttest.presentation.screens.adapter
+package com.example.deliveryprojecttest.presentation.screens.adapter.categoryscreen
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.deliveryprojecttest.domain.model.Categories
+import com.example.deliveryprojecttest.domain.model.Dishes
 
-class MainScreenDiffUtils(private val oldList: List<Categories>, private val newList: List<Categories>) : DiffUtil.Callback() {
+class TegDiffUtils(private val oldList: List<String>, private val newList: List<String>) :
+    DiffUtil.Callback() {
 
     override fun getOldListSize(): Int {
         return oldList.size
@@ -14,7 +15,7 @@ class MainScreenDiffUtils(private val oldList: List<Categories>, private val new
     }
 
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        return oldList[oldItemPosition].id == newList[newItemPosition].id
+        return oldList[oldItemPosition] == newList[newItemPosition]
     }
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
