@@ -49,7 +49,7 @@ class CategoryScreenFragment : Fragment(R.layout.fragment_category_screen) {
             adapterDishes.list = it
         }
         viewModel.listTags.observe(viewLifecycleOwner){
-            adapterTeg.list = it
+            adapterTeg.list
             Toast.makeText(requireContext(), "$it", Toast.LENGTH_LONG).show()
         }
 
