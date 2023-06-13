@@ -4,11 +4,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.deliveryprojecttest.domain.usecase.GetCategoriesUseCase
 
-class BasketViewModelFactory(private val getCategoriesUseCase: GetCategoriesUseCase) :
+class BasketViewModelFactory() :
     ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return BasketViewModel(getCategoriesUseCase = getCategoriesUseCase) as T
+        return BasketViewModel() as T
     }
 
 }

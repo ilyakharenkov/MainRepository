@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/imageDishes"
+        android:id="@+id/cardView"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_margin="5dp"
@@ -30,8 +30,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@id/imageDishes"
-        app:layout_constraintTop_toTopOf="@id/imageDishes"/>
+        app:layout_constraintStart_toEndOf="@id/cardView"
+        app:layout_constraintTop_toTopOf="@id/cardView"/>
 
     <TextView
         android:id="@+id/tvPriceDishes"
@@ -39,8 +39,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@id/imageDishes"
-        app:layout_constraintBottom_toBottomOf="@id/imageDishes"/>
+        app:layout_constraintStart_toEndOf="@id/cardView"
+        app:layout_constraintBottom_toBottomOf="@id/cardView"/>
 
     <TextView
         android:id="@+id/tvWeightDishes"
@@ -50,7 +50,7 @@
         android:textSize="18sp"
         android:textColor="@color/primaryBackground"
         app:layout_constraintStart_toEndOf="@id/tvPriceDishes"
-        app:layout_constraintBottom_toBottomOf="@id/imageDishes"/>
+        app:layout_constraintBottom_toBottomOf="@id/cardView"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="100dp"
@@ -69,6 +69,7 @@
             android:weightSum="3">
 
             <ImageButton
+                android:id="@+id/btnDiff"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -76,6 +77,7 @@
                 android:background="@color/secondaryBackground"
                 android:src="@drawable/ic_diff"/>
             <TextView
+                android:id="@+id/tvCount"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -85,6 +87,7 @@
                 android:textSize="18dp"
                 android:text="1"/>
             <ImageButton
+                android:id="@+id/btnSum"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
