@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
@@ -15,18 +16,6 @@ class ProductScreenFragment : DialogFragment(R.layout.fragment_product_screen) {
 
     private lateinit var binding: FragmentProductScreenBinding
 
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
-        AlertDialog
-            .Builder(requireContext())
-
-            .create()
-
-    companion object {
-        const val TAG_DIALOG = "TEST_TAG_DIALOG"
-    }
-
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentProductScreenBinding.bind(view)
@@ -36,10 +25,10 @@ class ProductScreenFragment : DialogFragment(R.layout.fragment_product_screen) {
 
     private fun initButton() {
         binding.btnCancel.setOnClickListener {
-            findNavController().popBackStack()
+            dialog?.cancel()
         }
         binding.btnAddBasket.setOnClickListener {
-            findNavController().popBackStack()
+
         }
     }
 
@@ -51,17 +40,27 @@ class ProductScreenFragment : DialogFragment(R.layout.fragment_product_screen) {
     }
 
     private fun initTestModel(testModel: TestModel) {
-
         Glide
             .with(binding.imageDishes.context)
             .load(testModel.image_url)
             .error(R.drawable.ic_food_place_holder)
             .into(binding.imageDishes)
-
         binding.tvNameDishes.text = testModel.name
         binding.tvPrice.text = testModel.price.toString()
         binding.tvWeight.text = testModel.weight.toString()
         binding.tvDescription.text = testModel.description
+    }
+
+    companion object {
+
+        fun newInstance(testModel: TestModel): ProductScreenFragment{
+            val args = bundleOf("TEST" to testModel)
+            val fragment = ProductScreenFragment()
+            fragment.arguments = args
+            return fragment
+        }
+
+        const val TAG_DIALOG = "TEST_TAG_DIALOG"
     }
 
 }

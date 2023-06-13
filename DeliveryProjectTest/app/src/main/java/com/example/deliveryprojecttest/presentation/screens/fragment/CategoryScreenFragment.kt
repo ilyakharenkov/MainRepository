@@ -46,11 +46,10 @@ class CategoryScreenFragment : Fragment(R.layout.fragment_category_screen) {
 
     private fun initAdapterDishes() {
         adapterDishes = CategoryScreenDishesAdapter(click = {
-//            findNavController().navigate(
-//                R.id.action_categoryScreenFragment_to_productScreenFragment,
-//                bundleOf("TEST" to mapTestModel(it))
-//            )
-            ProductScreenFragment().show(childFragmentManager, ProductScreenFragment.TAG_DIALOG)
+            ProductScreenFragment.newInstance(mapTestModel(it)).show(
+                childFragmentManager,
+                ProductScreenFragment.TAG_DIALOG
+            )
         })
         binding.rcViewDishes.layoutManager = GridLayoutManager(requireContext(), 3)
         binding.rcViewDishes.adapter = adapterDishes

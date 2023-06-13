@@ -25,7 +25,6 @@ class CategoryScreenTegAdapter : RecyclerView.Adapter<CategoryScreenTegAdapter.C
         fun bind(teg: String){
             binding.textViewTeg.text = teg
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryScreenTegViewHolder {
