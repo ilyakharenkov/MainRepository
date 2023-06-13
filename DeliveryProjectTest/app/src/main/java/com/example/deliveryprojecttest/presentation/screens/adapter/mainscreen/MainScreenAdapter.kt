@@ -16,7 +16,7 @@ import com.example.deliveryprojecttest.R
 import com.example.deliveryprojecttest.databinding.ItemCategoriesBinding
 import com.example.deliveryprojecttest.domain.model.Categories
 
-class MainScreenAdapter(private val click: () -> Unit) : RecyclerView.Adapter<MainScreenAdapter.MainScreenViewHolder>() {
+class MainScreenAdapter(private val click: (category: String) -> Unit) : RecyclerView.Adapter<MainScreenAdapter.MainScreenViewHolder>() {
 
     var listCategories: List<Categories> = listOf()
         set(value) {
@@ -30,7 +30,7 @@ class MainScreenAdapter(private val click: () -> Unit) : RecyclerView.Adapter<Ma
 
         private val binding: ItemCategoriesBinding = ItemCategoriesBinding.bind(view)
 
-        fun bind(categories: Categories, click: () -> Unit) {
+        fun bind(categories: Categories, click: (category: String) -> Unit) {
 
             Glide
                 .with(binding.imageBackground.context)
@@ -65,7 +65,7 @@ class MainScreenAdapter(private val click: () -> Unit) : RecyclerView.Adapter<Ma
             binding.nameCategories.text = categories.name
 
             itemView.setOnClickListener {
-                click()
+                click(categories.name)
             }
         }
     }

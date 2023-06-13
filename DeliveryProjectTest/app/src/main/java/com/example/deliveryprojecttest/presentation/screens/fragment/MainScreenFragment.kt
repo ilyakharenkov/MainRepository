@@ -1,8 +1,9 @@
-package com.example.deliveryprojecttest.presentation.screens
+package com.example.deliveryprojecttest.presentation.screens.fragment
 
 import android.location.Geocoder
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -39,7 +40,8 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
 
     private fun initAdapter() {
         adapter = MainScreenAdapter(click = {
-            findNavController().navigate(R.id.action_mainScreenFragment_to_categoryScreenFragment)
+            findNavController()
+                .navigate(R.id.action_mainScreenFragment_to_categoryScreenFragment, bundleOf("KEY" to it))
         })
         binding.rcViewMainScreen.layoutManager = LinearLayoutManager(requireContext())
         binding.rcViewMainScreen.adapter = adapter

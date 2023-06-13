@@ -1,4 +1,4 @@
-package com.example.deliveryprojecttest.presentation.screens
+package com.example.deliveryprojecttest.presentation.screens.fragment
 
 import android.os.Bundle
 import android.view.View
@@ -24,9 +24,7 @@ class BasketScreenFragment : Fragment(R.layout.fragment_basket_screen) {
     }
 
     private fun initCategory(){
-        viewModel.categories.observe(viewLifecycleOwner) {
-            binding.textView.text = it.toString()
-        }
+
     }
 
 }

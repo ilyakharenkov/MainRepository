@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/containerFragment"
-        android:name="com.example.deliveryprojecttest.presentation.screens.ContainerFragment"
+        android:name="com.example.deliveryprojecttest.presentation.screens.fragment.ContainerFragment"
         android:label="ContainerFragment"
         tools:layout="@layout/fragment_container"/>
 </navigation>

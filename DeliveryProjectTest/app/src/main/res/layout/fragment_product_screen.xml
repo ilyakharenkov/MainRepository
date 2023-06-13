@@ -2,36 +2,85 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
-    <TextView
+
+    <ImageButton
+        android:id="@+id/btnCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Product Screen Fragment"
-        android:textSize="26sp"
+        android:src="@drawable/ic_cancel"
+        android:backgroundTint="@color/white"
+        android:layout_margin="5dp"
+        android:elevation="10dp"
+        app:layout_constraintTop_toTopOf="@id/imageDishes"
+        app:layout_constraintEnd_toEndOf="@id/imageDishes"/>
+
+    <ImageButton
+        android:id="@+id/btnLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_like"
+        android:layout_margin="5dp"
+        android:backgroundTint="@color/white"
+        android:elevation="10dp"
+        app:layout_constraintTop_toTopOf="@id/imageDishes"
+        app:layout_constraintEnd_toStartOf="@id/btnCancel"/>
+
+    <ImageView
+        android:id="@+id/imageDishes"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_margin="20dp"
+        android:contentDescription="Description"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <Button
-        android:id="@+id/btnOne"
+    <TextView
+        android:id="@+id/tvNameDishes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        app:layout_constraintTop_toBottomOf="@id/imageDishes"
+        app:layout_constraintStart_toStartOf="@id/imageDishes"/>
+
+    <TextView
+        android:id="@+id/tvPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/tvNameDishes"
+        app:layout_constraintStart_toStartOf="@id/tvNameDishes"/>
+    
+    <TextView
+        android:id="@+id/tvWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toTopOf="@id/tvPrice"
+        app:layout_constraintBottom_toBottomOf="@id/tvPrice"
+        app:layout_constraintStart_toEndOf="@id/tvPrice"/>
+    
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/tvPrice"
+        app:layout_constraintStart_toStartOf="@id/imageDishes"
+        app:layout_constraintEnd_toEndOf="@id/imageDishes"/>
 
     <Button
-        android:id="@+id/btnTwo"
+        android:id="@+id/btnAddBasket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back"
-        app:layout_constraintTop_toBottomOf="@id/btnOne"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:text="Добавить в корзину"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/tvDescription"
+        app:layout_constraintStart_toStartOf="@id/imageDishes"
+        app:layout_constraintEnd_toEndOf="@id/imageDishes"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

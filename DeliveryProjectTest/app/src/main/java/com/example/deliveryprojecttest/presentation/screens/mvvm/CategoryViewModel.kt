@@ -37,5 +37,4 @@ class CategoryViewModel(private val getDishesUseCase: GetDishesUseCase) : ViewMo
         }
     }
 
-
 }

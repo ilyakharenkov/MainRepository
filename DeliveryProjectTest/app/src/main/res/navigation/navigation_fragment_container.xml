@@ -10,7 +10,7 @@
 
     <fragment
         android:id="@+id/basketScreenFragment"
-        android:name="com.example.deliveryprojecttest.presentation.screens.BasketScreenFragment"
+        android:name="com.example.deliveryprojecttest.presentation.screens.fragment.BasketScreenFragment"
         android:label="BasketScreenFragment"
         tools:layout="@layout/fragment_basket_screen"/>
 

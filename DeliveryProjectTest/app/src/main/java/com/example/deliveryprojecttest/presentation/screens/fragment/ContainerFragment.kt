@@ -1,4 +1,4 @@
-package com.example.deliveryprojecttest.presentation.screens
+package com.example.deliveryprojecttest.presentation.screens.fragment
 
 import android.os.Bundle
 import android.view.View
