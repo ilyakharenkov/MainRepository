@@ -5,7 +5,9 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.deliveryprojecttest.Di
 import com.example.deliveryprojecttest.R
 import com.example.deliveryprojecttest.databinding.FragmentCategoryScreenBinding
@@ -33,14 +35,16 @@ class CategoryScreenFragment : Fragment(R.layout.fragment_category_screen) {
     }
 
     private fun initAdapterDishes(){
-        adapterDishes = CategoryScreenDishesAdapter()
+        adapterDishes = CategoryScreenDishesAdapter(click = {
+            findNavController().navigate(R.id.action_categoryScreenFragment_to_productScreenFragment)
+        })
         binding.rcViewDishes.layoutManager = GridLayoutManager(requireContext(), 3)
         binding.rcViewDishes.adapter = adapterDishes
     }
 
     private fun initAdapterTeg(){
         adapterTeg = CategoryScreenTegAdapter()
-        binding.rcViewTeg.layoutManager = GridLayoutManager(requireContext(), 3)
+        binding.rcViewTeg.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.rcViewTeg.adapter = adapterTeg
     }
 
@@ -49,10 +53,7 @@ class CategoryScreenFragment : Fragment(R.layout.fragment_category_screen) {
             adapterDishes.list = it
         }
         viewModel.listTags.observe(viewLifecycleOwner){
-            adapterTeg.list
-            Toast.makeText(requireContext(), "$it", Toast.LENGTH_LONG).show()
+            adapterTeg.list = it
         }
-
     }
-
 }

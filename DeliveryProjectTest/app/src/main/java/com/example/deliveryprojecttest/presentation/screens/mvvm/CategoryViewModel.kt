@@ -5,8 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.deliveryprojecttest.domain.model.Dishes
+import com.example.deliveryprojecttest.domain.model.TestModel
 import com.example.deliveryprojecttest.domain.usecase.GetDishesUseCase
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.plus
 
 class CategoryViewModel(private val getDishesUseCase: GetDishesUseCase) : ViewModel() {
 
@@ -22,10 +24,16 @@ class CategoryViewModel(private val getDishesUseCase: GetDishesUseCase) : ViewMo
 
     private fun initListDishes() {
         viewModelScope.launch {
+
             _listDishes.value = getDishesUseCase.execute().dishes
-            getDishesUseCase.execute().dishes.map {
-                _listTags.value = it.tegs
+
+            val result = mutableListOf<String>()
+            _listDishes.value?.forEach { dishes ->
+                dishes.tegs.forEach { tag ->
+                    result += tag
+                }
             }
+            _listTags.value = result.toSet().toList()
         }
     }
 

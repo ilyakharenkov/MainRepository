@@ -11,7 +11,7 @@ import com.example.deliveryprojecttest.R
 import com.example.deliveryprojecttest.databinding.ItemDishesBinding
 import com.example.deliveryprojecttest.domain.model.Dishes
 
-class CategoryScreenDishesAdapter :
+class CategoryScreenDishesAdapter(private val click: () -> Unit) :
     RecyclerView.Adapter<CategoryScreenDishesAdapter.CategoryScreenDishesViewHolder>() {
 
     var list: List<Dishes> = emptyList()
@@ -26,7 +26,7 @@ class CategoryScreenDishesAdapter :
 
         private val binding = ItemDishesBinding.bind(view)
 
-        fun bind(dishes: Dishes) {
+        fun bind(dishes: Dishes, click: () -> Unit) {
 
             Glide
                 .with(binding.imageUrlView.context)
@@ -37,6 +37,10 @@ class CategoryScreenDishesAdapter :
                 .into(binding.imageUrlView)
 
             binding.textViewName.text = dishes.name
+
+            itemView.setOnClickListener {
+                click()
+            }
 
         }
 
@@ -59,7 +63,7 @@ class CategoryScreenDishesAdapter :
         categoryScreenDishesViewHolder: CategoryScreenDishesViewHolder,
         position: Int
     ) {
-        categoryScreenDishesViewHolder.bind(list[position])
+        categoryScreenDishesViewHolder.bind(list[position], click = click)
     }
 
 
