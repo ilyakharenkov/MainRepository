@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DeliveryProjectTest</string>
+
+    <!-- bottom_navigation_menu -->
+    <string name="bottom_menu"></string>
+
 </resources>
