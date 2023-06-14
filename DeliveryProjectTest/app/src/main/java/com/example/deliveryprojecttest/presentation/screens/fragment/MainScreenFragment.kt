@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.deliveryprojecttest.Di
 import com.example.deliveryprojecttest.R
 import com.example.deliveryprojecttest.databinding.FragmentMainScreenBinding
@@ -41,7 +40,10 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
     private fun initAdapter() {
         adapter = MainScreenAdapter(click = {
             findNavController()
-                .navigate(R.id.action_mainScreenFragment_to_categoryScreenFragment, bundleOf("KEY" to it))
+                .navigate(
+                    R.id.action_mainScreenFragment_to_categoryScreenFragment,
+                    bundleOf("KEY" to it)
+                )
         })
         binding.rcViewMainScreen.layoutManager = LinearLayoutManager(requireContext())
         binding.rcViewMainScreen.adapter = adapter
@@ -62,8 +64,6 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
     private fun initPhoto() {
         Glide.with(requireContext())
             .load("https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZmFjZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60")
-            .skipMemoryCache(true)
-            .diskCacheStrategy(DiskCacheStrategy.NONE)
             .circleCrop()
             .error(R.drawable.account_image)
             .into(binding.userPhoto)

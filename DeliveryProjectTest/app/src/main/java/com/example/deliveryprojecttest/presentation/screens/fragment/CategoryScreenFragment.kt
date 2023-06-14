@@ -2,12 +2,12 @@ package com.example.deliveryprojecttest.presentation.screens.fragment
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.deliveryprojecttest.Di
 import com.example.deliveryprojecttest.R
 import com.example.deliveryprojecttest.databinding.FragmentCategoryScreenBinding
@@ -36,6 +36,7 @@ class CategoryScreenFragment : Fragment(R.layout.fragment_category_screen) {
         initAdapterTeg()
         initObserver()
         resultOfMainScreen()
+        initPhoto()
     }
 
     private fun initButton() {
@@ -84,6 +85,14 @@ class CategoryScreenFragment : Fragment(R.layout.fragment_category_screen) {
             description = dishes.description,
             image_url = dishes.image_url
         )
+    }
+
+    private fun initPhoto() {
+        Glide.with(requireContext())
+            .load("https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZmFjZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60")
+            .circleCrop()
+            .error(R.drawable.account_image)
+            .into(binding.userPhoto)
     }
 
 
