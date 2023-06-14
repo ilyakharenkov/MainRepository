@@ -16,17 +16,15 @@ import com.example.deliveryprojecttest.presentation.screens.mvvm.BasketViewModel
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import kotlin.random.Random
 
 class BasketScreenFragment : Fragment(R.layout.fragment_basket_screen) {
 
     private lateinit var adapter: BasketScreenAdapter
 
-    private var testList: List<Dishes> = emptyList()
-
     private val viewModel: BasketViewModel by viewModels {
         BasketViewModelFactory(
-            addBasketServiceUseCase = Di.addBasketServiceUseCase,
-            deleteBasketUseCase = Di.deleteBasketServiceUseCase
+            basketServiceUseCase = Di.basketServiceUseCase
         )
     }
     private lateinit var binding: FragmentBasketScreenBinding
@@ -48,14 +46,17 @@ class BasketScreenFragment : Fragment(R.layout.fragment_basket_screen) {
     }
 
     private fun initObserver() {
-        adapter.list = testList
+        viewModel.listBasket.observe(viewLifecycleOwner) {
+            adapter.list = it
+        }
     }
 
     private fun initButton() {
         binding.btnBie.setOnClickListener {
-
+            //TODO
         }
     }
+
 
     /**
      * FIX repeat code

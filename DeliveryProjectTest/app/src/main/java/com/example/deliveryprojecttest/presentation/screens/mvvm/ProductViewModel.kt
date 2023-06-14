@@ -5,13 +5,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.deliveryprojecttest.domain.model.Dishes
-import com.example.deliveryprojecttest.domain.usecase.AddBasketServiceUseCase
+import com.example.deliveryprojecttest.domain.usecase.BasketServiceUseCase
 import com.example.deliveryprojecttest.domain.usecase.GetDishesUseCase
 import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
 class ProductViewModel(
-    private val addBasketServiceUseCase: AddBasketServiceUseCase,
+    private val basketServiceUseCase: BasketServiceUseCase,
     private val getDishesUseCase: GetDishesUseCase
 ) : ViewModel() {
 
@@ -28,7 +28,7 @@ class ProductViewModel(
     }
 
     fun addDishesInBasket(){
-        _dishes.value?.let { addBasketServiceUseCase.execute(dishes = it) }
+        _dishes.value?.let { basketServiceUseCase.add(dishes = it) }
     }
 
 }

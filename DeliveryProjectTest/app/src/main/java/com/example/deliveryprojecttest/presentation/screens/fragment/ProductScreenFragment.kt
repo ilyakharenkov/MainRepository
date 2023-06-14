@@ -9,7 +9,6 @@ import com.bumptech.glide.Glide
 import com.example.deliveryprojecttest.Di
 import com.example.deliveryprojecttest.R
 import com.example.deliveryprojecttest.databinding.FragmentProductScreenBinding
-import com.example.deliveryprojecttest.domain.model.Dishes
 import com.example.deliveryprojecttest.presentation.screens.mvvm.ProductViewModel
 import com.example.deliveryprojecttest.presentation.screens.mvvm.ProductViewModelFactory
 
@@ -18,7 +17,7 @@ class ProductScreenFragment : DialogFragment(R.layout.fragment_product_screen) {
     private lateinit var binding: FragmentProductScreenBinding
     private val viewModel: ProductViewModel by viewModels {
         ProductViewModelFactory(
-            addBasketServiceUseCase = Di.addBasketServiceUseCase,
+            basketServiceUseCase = Di.basketServiceUseCase,
             getDishesUseCase = Di.getDishesUseCase
         )
     }

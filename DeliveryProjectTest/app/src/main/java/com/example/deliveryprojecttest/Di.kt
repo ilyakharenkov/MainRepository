@@ -5,11 +5,9 @@ import com.example.deliveryprojecttest.domain.repository.Repository
 import com.example.deliveryprojecttest.data.repository.RepositoryImpl
 import com.example.deliveryprojecttest.data.service.BasketServiceImpl
 import com.example.deliveryprojecttest.domain.repository.BasketService
-import com.example.deliveryprojecttest.domain.usecase.AddBasketServiceUseCase
-import com.example.deliveryprojecttest.domain.usecase.DeleteBasketUseCase
+import com.example.deliveryprojecttest.domain.usecase.BasketServiceUseCase
 import com.example.deliveryprojecttest.domain.usecase.GetCategoriesUseCase
 import com.example.deliveryprojecttest.domain.usecase.GetDishesUseCase
-import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -25,13 +23,10 @@ object Di {
         GetDishesUseCase(repository = repository)
     }
 
-    val addBasketServiceUseCase by lazy {
-        AddBasketServiceUseCase(basketService = basketService)
+    val basketServiceUseCase by lazy {
+        BasketServiceUseCase(basketService = basketService)
     }
 
-    val deleteBasketServiceUseCase by lazy {
-        DeleteBasketUseCase(basketService = basketService)
-    }
 
     private val basketService: BasketService by lazy {
         BasketServiceImpl()
