@@ -4,19 +4,19 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.deliveryprojecttest.domain.model.Dishes
-import com.example.deliveryprojecttest.domain.usecase.BasketServiceUseCase
-import com.example.deliveryprojecttest.domain.usecase.GetDishesUseCase
+import com.example.domain.model.Dishes
+import com.example.domain.usecase.BasketServiceUseCase
+import com.example.domain.usecase.GetDishesUseCase
 import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
 class ProductViewModel(
-    private val basketServiceUseCase: BasketServiceUseCase,
-    private val getDishesUseCase: GetDishesUseCase
+    private val basketServiceUseCase: com.example.domain.usecase.BasketServiceUseCase,
+    private val getDishesUseCase: com.example.domain.usecase.GetDishesUseCase
 ) : ViewModel() {
 
-    private val _dishes = MutableLiveData<Dishes>()
-    val dishes: LiveData<Dishes> = _dishes
+    private val _dishes = MutableLiveData<com.example.domain.model.Dishes>()
+    val dishes: LiveData<com.example.domain.model.Dishes> = _dishes
 
     fun getById(id: Int){
         viewModelScope.launch {

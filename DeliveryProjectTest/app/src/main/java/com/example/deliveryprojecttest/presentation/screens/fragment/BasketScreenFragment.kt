@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.example.deliveryprojecttest.Di
 import com.example.deliveryprojecttest.R
 import com.example.deliveryprojecttest.databinding.FragmentBasketScreenBinding
-import com.example.deliveryprojecttest.domain.model.Dishes
+import com.example.domain.model.Dishes
 import com.example.deliveryprojecttest.presentation.screens.adapter.basketscreen.BasketScreenAdapter
 import com.example.deliveryprojecttest.presentation.screens.mvvm.BasketViewModel
 import com.example.deliveryprojecttest.presentation.screens.mvvm.BasketViewModelFactory

@@ -11,8 +11,8 @@ import com.bumptech.glide.Glide
 import com.example.deliveryprojecttest.Di
 import com.example.deliveryprojecttest.R
 import com.example.deliveryprojecttest.databinding.FragmentCategoryScreenBinding
-import com.example.deliveryprojecttest.domain.model.Dishes
-import com.example.deliveryprojecttest.domain.model.TestModel
+import com.example.domain.model.Dishes
+import com.example.domain.model.TestModel
 import com.example.deliveryprojecttest.presentation.screens.adapter.categoryscreen.CategoryScreenDishesAdapter
 import com.example.deliveryprojecttest.presentation.screens.adapter.categoryscreen.CategoryScreenTegAdapter
 import com.example.deliveryprojecttest.presentation.screens.mvvm.CategoryViewModel
@@ -77,8 +77,8 @@ class CategoryScreenFragment : Fragment(R.layout.fragment_category_screen) {
         binding.categoryName.text = i
     }
 
-    private fun mapTestModel(dishes: Dishes): TestModel {
-        return TestModel(
+    private fun mapTestModel(dishes: com.example.domain.model.Dishes): com.example.domain.model.TestModel {
+        return com.example.domain.model.TestModel(
             name = dishes.name,
             price = dishes.price,
             weight = dishes.weight,

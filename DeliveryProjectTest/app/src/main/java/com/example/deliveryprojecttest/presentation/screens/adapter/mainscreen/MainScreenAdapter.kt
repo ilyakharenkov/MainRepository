@@ -14,11 +14,11 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.example.deliveryprojecttest.R
 import com.example.deliveryprojecttest.databinding.ItemCategoriesBinding
-import com.example.deliveryprojecttest.domain.model.Categories
+import com.example.domain.model.Categories
 
 class MainScreenAdapter(private val click: (category: String) -> Unit) : RecyclerView.Adapter<MainScreenAdapter.MainScreenViewHolder>() {
 
-    var listCategories: List<Categories> = listOf()
+    var listCategories: List<com.example.domain.model.Categories> = listOf()
         set(value) {
             val mainScreenDiffUtils = MainScreenDiffUtils(field, value)
             val diffUtil = DiffUtil.calculateDiff(mainScreenDiffUtils)
@@ -30,7 +30,7 @@ class MainScreenAdapter(private val click: (category: String) -> Unit) : Recycle
 
         private val binding: ItemCategoriesBinding = ItemCategoriesBinding.bind(view)
 
-        fun bind(categories: Categories, click: (category: String) -> Unit) {
+        fun bind(categories: com.example.domain.model.Categories, click: (category: String) -> Unit) {
 
             Glide
                 .with(binding.imageBackground.context)

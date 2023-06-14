@@ -4,14 +4,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.deliveryprojecttest.domain.model.Categories
-import com.example.deliveryprojecttest.domain.usecase.GetCategoriesUseCase
+import com.example.domain.model.Categories
+import com.example.domain.usecase.GetCategoriesUseCase
 import kotlinx.coroutines.launch
 
-class MainViewModel(private val getCategoriesUseCase: GetCategoriesUseCase) : ViewModel() {
+class MainViewModel(private val getCategoriesUseCase: com.example.domain.usecase.GetCategoriesUseCase) : ViewModel() {
 
-    private val _list = MutableLiveData<List<Categories>>()
-    val list: LiveData<List<Categories>> = _list
+    private val _list = MutableLiveData<List<com.example.domain.model.Categories>>()
+    val list: LiveData<List<com.example.domain.model.Categories>> = _list
 
     private val _photo = MutableLiveData<String>()
     val photo: LiveData<String> = _photo

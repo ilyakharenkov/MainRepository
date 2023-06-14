@@ -9,12 +9,12 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.deliveryprojecttest.R
 import com.example.deliveryprojecttest.databinding.ItemDishesBinding
-import com.example.deliveryprojecttest.domain.model.Dishes
+import com.example.domain.model.Dishes
 
-class CategoryScreenDishesAdapter(private val click: (dishes: Dishes) -> Unit) :
+class CategoryScreenDishesAdapter(private val click: (dishes: com.example.domain.model.Dishes) -> Unit) :
     RecyclerView.Adapter<CategoryScreenDishesAdapter.CategoryScreenDishesViewHolder>() {
 
-    var list: List<Dishes> = emptyList()
+    var list: List<com.example.domain.model.Dishes> = emptyList()
         set(value) {
             val dishesDiffUtils = DishesDiffUtils(field, value)
             val diffUtil = DiffUtil.calculateDiff(dishesDiffUtils)
@@ -26,7 +26,7 @@ class CategoryScreenDishesAdapter(private val click: (dishes: Dishes) -> Unit) :
 
         private val binding = ItemDishesBinding.bind(view)
 
-        fun bind(dishes: Dishes, click: (dishes: Dishes) -> Unit) {
+        fun bind(dishes: com.example.domain.model.Dishes, click: (dishes: com.example.domain.model.Dishes) -> Unit) {
 
             Glide
                 .with(binding.imageUrlView.context)
