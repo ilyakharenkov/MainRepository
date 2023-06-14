@@ -16,4 +16,6 @@
     <!-- product_screen_fragment -->
     <string name="product_screen_fragment_1">Добавить в корзину</string>
 
+    <string name="fragment_basket_screen">Оплатить</string>
+
 </resources>
