@@ -4,17 +4,17 @@
     <item
         android:id="@+id/navigation_test"
         android:icon="@drawable/ic_home"
-        android:title="Главная"/>
+        android:title="@string/bottom_menu_1"/>
     <item
         android:id="@+id/searchScreenFragment"
         android:icon="@drawable/ic_search"
-        android:title="Search" />
+        android:title="@string/bottom_menu_2" />
     <item
         android:id="@+id/basketScreenFragment"
         android:icon="@drawable/ic_basket"
-        android:title="Basket" />
+        android:title="@string/bottom_menu_3" />
     <item
         android:id="@+id/accountScreenFragment"
         android:icon="@drawable/ic_account"
-        android:title="Account" />
+        android:title="@string/bottom_menu_4" />
 </menu>

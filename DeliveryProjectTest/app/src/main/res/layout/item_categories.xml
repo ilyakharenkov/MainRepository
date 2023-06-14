@@ -19,6 +19,7 @@
         android:layout_width="0dp"
         android:layout_height="170dp"
         android:layout_margin="4dp"
+        android:contentDescription="@string/content_description"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +30,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:textSize="20dp"
+        android:textSize="20sp"
+        android:fontFamily="@font/sf_pro_display"
         app:layout_constraintTop_toTopOf="@id/imageBackground"
         app:layout_constraintStart_toStartOf="@id/imageBackground"/>
 

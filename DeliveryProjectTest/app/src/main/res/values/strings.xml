@@ -1,7 +1,19 @@
 <resources>
     <string name="app_name">DeliveryProjectTest</string>
 
+    <!-- content_description -->
+    <string name="content_description">Description</string>
+
     <!-- bottom_navigation_menu -->
-    <string name="bottom_menu"></string>
+    <string name="bottom_menu_1">Главная</string>
+    <string name="bottom_menu_2">Поиск</string>
+    <string name="bottom_menu_3">Корзина</string>
+    <string name="bottom_menu_4">Аккаунт</string>
+
+    <!-- mains_screen_fragment -->
+    <string name="mains_screen_fragment_1">City location</string>
+
+    <!-- product_screen_fragment -->
+    <string name="product_screen_fragment_1">Добавить в корзину</string>
 
 </resources>
