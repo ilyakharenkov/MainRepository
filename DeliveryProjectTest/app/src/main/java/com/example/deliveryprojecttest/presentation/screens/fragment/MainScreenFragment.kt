@@ -42,7 +42,7 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
             findNavController()
                 .navigate(
                     R.id.action_mainScreenFragment_to_categoryScreenFragment,
-                    bundleOf("KEY" to it)
+                    bundleOf(KEY_NAME_CATEGORY to it)
                 )
         })
         binding.rcViewMainScreen.layoutManager = LinearLayoutManager(requireContext())
@@ -77,6 +77,10 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
         geoCoder.getFromLocation(lat, long, 1) {
             binding.locationCity.text = it[0].adminArea
         }
+    }
+
+    companion object{
+        const val KEY_NAME_CATEGORY = "KEY_NAME_CATEGORY"
     }
 
 
