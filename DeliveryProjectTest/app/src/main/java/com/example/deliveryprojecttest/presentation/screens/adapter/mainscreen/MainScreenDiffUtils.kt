@@ -1,9 +1,9 @@
 package com.example.deliveryprojecttest.presentation.screens.adapter.mainscreen
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.domain.model.Categories
+import com.example.deliveryprojecttest.domain.model.Categories
 
-class MainScreenDiffUtils(private val oldList: List<com.example.domain.model.Categories>, private val newList: List<com.example.domain.model.Categories>) : DiffUtil.Callback() {
+class MainScreenDiffUtils(private val oldList: List<Categories>, private val newList: List<Categories>) : DiffUtil.Callback() {
 
     override fun getOldListSize(): Int {
         return oldList.size

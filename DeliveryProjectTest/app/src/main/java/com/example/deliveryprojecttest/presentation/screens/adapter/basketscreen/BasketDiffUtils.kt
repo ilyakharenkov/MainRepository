@@ -1,9 +1,9 @@
 package com.example.deliveryprojecttest.presentation.screens.adapter.basketscreen
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.domain.model.Dishes
+import com.example.deliveryprojecttest.domain.model.Dishes
 
-class BasketDiffUtils(private val oldList: List<com.example.domain.model.Dishes>, private val newList: List<com.example.domain.model.Dishes>) :
+class BasketDiffUtils(private val oldList: List<Dishes>, private val newList: List<Dishes>) :
     DiffUtil.Callback() {
 
     override fun getOldListSize(): Int {

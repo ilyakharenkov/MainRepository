@@ -8,11 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.deliveryprojecttest.R
 import com.example.deliveryprojecttest.databinding.ItemBasketBinding
-import com.example.domain.model.Dishes
+import com.example.deliveryprojecttest.domain.model.Dishes
 
 class BasketScreenAdapter : RecyclerView.Adapter<BasketScreenAdapter.BasketScreenViewHolder>() {
 
-    var list: List<com.example.domain.model.Dishes> = emptyList()
+    var list: List<Dishes> = emptyList()
         set(value) {
             val basketDiffUtil = BasketDiffUtils(field, value)
             val diffUtil = DiffUtil.calculateDiff(basketDiffUtil)
@@ -24,7 +24,7 @@ class BasketScreenAdapter : RecyclerView.Adapter<BasketScreenAdapter.BasketScree
 
         private val binding = ItemBasketBinding.bind(view)
 
-        fun bind(dishes: com.example.domain.model.Dishes) {
+        fun bind(dishes: Dishes) {
 
             Glide
                 .with(binding.imageView.context)

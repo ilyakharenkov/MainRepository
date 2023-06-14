@@ -2,10 +2,10 @@ package com.example.deliveryprojecttest.presentation.screens.mvvm
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.domain.usecase.BasketServiceUseCase
+import com.example.deliveryprojecttest.domain.usecase.BasketServiceUseCase
 
 class BasketViewModelFactory(
-    private val basketServiceUseCase: com.example.domain.usecase.BasketServiceUseCase
+    private val basketServiceUseCase: BasketServiceUseCase
 ) :
     ViewModelProvider.Factory {
 

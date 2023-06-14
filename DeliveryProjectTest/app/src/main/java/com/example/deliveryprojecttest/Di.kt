@@ -1,13 +1,13 @@
 package com.example.deliveryprojecttest
 
-import com.example.data.api.Api
-import com.example.domain.repository.Repository
-import com.example.data.repository.RepositoryImpl
-import com.example.data.service.BasketServiceImpl
-import com.example.domain.repository.BasketService
-import com.example.domain.usecase.BasketServiceUseCase
-import com.example.domain.usecase.GetCategoriesUseCase
-import com.example.domain.usecase.GetDishesUseCase
+import com.example.deliveryprojecttest.data.api.Api
+import com.example.deliveryprojecttest.domain.repository.Repository
+import com.example.deliveryprojecttest.data.repository.RepositoryImpl
+import com.example.deliveryprojecttest.data.service.BasketServiceImpl
+import com.example.deliveryprojecttest.domain.repository.BasketService
+import com.example.deliveryprojecttest.domain.usecase.BasketServiceUseCase
+import com.example.deliveryprojecttest.domain.usecase.GetCategoriesUseCase
+import com.example.deliveryprojecttest.domain.usecase.GetDishesUseCase
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
