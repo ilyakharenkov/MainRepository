@@ -7,10 +7,15 @@ import androidx.lifecycle.viewModelScope
 import com.example.deliveryprojecttest.Di
 import com.example.deliveryprojecttest.domain.model.Dishes
 import com.example.deliveryprojecttest.domain.model.ResponseCategories
+import com.example.deliveryprojecttest.domain.usecase.AddBasketServiceUseCase
+import com.example.deliveryprojecttest.domain.usecase.DeleteBasketUseCase
 import com.example.deliveryprojecttest.domain.usecase.GetCategoriesUseCase
 import kotlinx.coroutines.launch
 
-class BasketViewModel() : ViewModel() {
+class BasketViewModel(
+    private val addBasketServiceUseCase: AddBasketServiceUseCase,
+    private val deleteBasketUseCase: DeleteBasketUseCase
+) : ViewModel() {
 
     private val _listBasket = MutableLiveData<List<Dishes>>()
     val listBasket: LiveData<List<Dishes>> = _listBasket

@@ -61,6 +61,9 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
         binding.locationData.text = time
     }
 
+    /**
+     * FIX repeat code
+     */
     private fun initPhoto() {
         Glide.with(requireContext())
             .load("https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZmFjZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60")
@@ -69,7 +72,7 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
             .into(binding.userPhoto)
     }
 
-    private fun test(lat: Double, long: Double) {
+    private fun getNameCityOfLocation(lat: Double, long: Double) {
         val geoCoder = Geocoder(requireContext(), Locale.getDefault())
         geoCoder.getFromLocation(lat, long, 1) {
             binding.locationCity.text = it[0].adminArea

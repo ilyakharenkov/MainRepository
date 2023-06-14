@@ -3,19 +3,15 @@ package com.example.deliveryprojecttest.presentation.screens.mvvm
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.deliveryprojecttest.domain.usecase.AddBasketServiceUseCase
-import com.example.deliveryprojecttest.domain.usecase.DeleteBasketUseCase
+import com.example.deliveryprojecttest.domain.usecase.GetDishesUseCase
 
-class BasketViewModelFactory(
+class ProductViewModelFactory(
     private val addBasketServiceUseCase: AddBasketServiceUseCase,
-    private val deleteBasketUseCase: DeleteBasketUseCase
-) :
-    ViewModelProvider.Factory {
+    private val getDishesUseCase: GetDishesUseCase
+    ): ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return BasketViewModel(
-            addBasketServiceUseCase = addBasketServiceUseCase,
-            deleteBasketUseCase = deleteBasketUseCase
-        ) as T
+        return ProductViewModel(addBasketServiceUseCase = addBasketServiceUseCase, getDishesUseCase = getDishesUseCase) as T
     }
 
 }

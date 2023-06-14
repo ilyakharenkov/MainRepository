@@ -47,7 +47,7 @@ class CategoryScreenFragment : Fragment(R.layout.fragment_category_screen) {
 
     private fun initAdapterDishes() {
         adapterDishes = CategoryScreenDishesAdapter(click = {
-            ProductScreenFragment.newInstance(mapTestModel(it)).show(
+            ProductScreenFragment.newInstance(it.id).show(
                 childFragmentManager,
                 ProductScreenFragment.TAG_DIALOG
             )
@@ -73,7 +73,7 @@ class CategoryScreenFragment : Fragment(R.layout.fragment_category_screen) {
     }
 
     private fun resultOfMainScreen() {
-        val i = arguments?.getString("KEY")
+        val i = arguments?.getString(KEY_NAME_CATEGORY)
         binding.categoryName.text = i
     }
 
@@ -93,6 +93,10 @@ class CategoryScreenFragment : Fragment(R.layout.fragment_category_screen) {
             .circleCrop()
             .error(R.drawable.account_image)
             .into(binding.userPhoto)
+    }
+
+    companion object{
+        const val KEY_NAME_CATEGORY = "KEY_NAME_CATEGORY"
     }
 
 

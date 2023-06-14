@@ -3,6 +3,10 @@ package com.example.deliveryprojecttest
 import com.example.deliveryprojecttest.data.api.Api
 import com.example.deliveryprojecttest.domain.repository.Repository
 import com.example.deliveryprojecttest.data.repository.RepositoryImpl
+import com.example.deliveryprojecttest.data.service.BasketServiceImpl
+import com.example.deliveryprojecttest.domain.repository.BasketService
+import com.example.deliveryprojecttest.domain.usecase.AddBasketServiceUseCase
+import com.example.deliveryprojecttest.domain.usecase.DeleteBasketUseCase
 import com.example.deliveryprojecttest.domain.usecase.GetCategoriesUseCase
 import com.example.deliveryprojecttest.domain.usecase.GetDishesUseCase
 import com.google.gson.GsonBuilder
@@ -19,6 +23,18 @@ object Di {
 
     val getDishesUseCase by lazy {
         GetDishesUseCase(repository = repository)
+    }
+
+    val addBasketServiceUseCase by lazy {
+        AddBasketServiceUseCase(basketService = basketService)
+    }
+
+    val deleteBasketServiceUseCase by lazy {
+        DeleteBasketUseCase(basketService = basketService)
+    }
+
+    private val basketService: BasketService by lazy {
+        BasketServiceImpl()
     }
 
     private val repository: Repository by lazy {
@@ -41,3 +57,9 @@ object Di {
         retrofit.create(Api::class.java)
     }
 }
+
+/**
+ * KOIN
+ *
+ *
+ */

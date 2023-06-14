@@ -1,25 +1,24 @@
 package com.example.deliveryprojecttest.data.service
 
 import com.example.deliveryprojecttest.domain.model.Dishes
+import com.example.deliveryprojecttest.domain.repository.BasketService
 
-class BasketService() {
+class BasketServiceImpl : BasketService  {
 
     var list: MutableList<Dishes> = mutableListOf()
 
     private val observer = mutableListOf<(dishes: List<Dishes>) -> Unit>()
 
-    fun generateList(){
-
-    }
-
-    fun addToBasket(dishes: Dishes) {
+    override fun addToBasket(dishes: Dishes) {
         list = ArrayList(list)
         list.add(dishes)
         update()
     }
 
-    fun deleteFromBasket(dishes: Dishes){
-        list
+    override fun deleteOfBasket(dishes: Dishes){
+        val id = list.indexOfFirst { it.id == dishes.id }
+        list.removeAt(id)
+        update()
     }
 
     fun addListener(listener: (dishes: List<Dishes>) -> Unit){
