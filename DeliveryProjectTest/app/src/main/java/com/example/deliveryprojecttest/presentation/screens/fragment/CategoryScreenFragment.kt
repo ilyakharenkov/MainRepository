@@ -11,8 +11,6 @@ import com.bumptech.glide.Glide
 import com.example.deliveryprojecttest.Di
 import com.example.deliveryprojecttest.R
 import com.example.deliveryprojecttest.databinding.FragmentCategoryScreenBinding
-import com.example.deliveryprojecttest.domain.model.Dishes
-import com.example.deliveryprojecttest.domain.model.InformationDishes
 import com.example.deliveryprojecttest.presentation.screens.adapter.categoryscreen.CategoryScreenDishesAdapter
 import com.example.deliveryprojecttest.presentation.screens.adapter.categoryscreen.CategoryScreenTegAdapter
 import com.example.deliveryprojecttest.presentation.screens.mvvm.CategoryViewModel
@@ -79,17 +77,6 @@ class CategoryScreenFragment : Fragment(R.layout.fragment_category_screen) {
         viewModel.resultName.observe(viewLifecycleOwner) {
             binding.categoryName.text = it
         }
-    }
-
-    private fun mapInformationDishes(dishes: Dishes): InformationDishes {
-        return InformationDishes(
-            id = dishes.id,
-            name = dishes.name,
-            price = dishes.price,
-            weight = dishes.weight,
-            description = dishes.description,
-            image_url = dishes.image_url
-        )
     }
 
     private fun initPhoto() {

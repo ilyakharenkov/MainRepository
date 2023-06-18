@@ -9,8 +9,6 @@ import com.bumptech.glide.Glide
 import com.example.deliveryprojecttest.Di
 import com.example.deliveryprojecttest.R
 import com.example.deliveryprojecttest.databinding.FragmentProductScreenBinding
-import com.example.deliveryprojecttest.domain.model.Dishes
-import com.example.deliveryprojecttest.domain.model.InformationDishes
 import com.example.deliveryprojecttest.presentation.screens.mvvm.ProductViewModel
 import com.example.deliveryprojecttest.presentation.screens.mvvm.ProductViewModelFactory
 
