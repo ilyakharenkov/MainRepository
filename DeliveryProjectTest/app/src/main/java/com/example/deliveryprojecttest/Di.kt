@@ -27,7 +27,6 @@ object Di {
         BasketServiceUseCase(basketService = basketService)
     }
 
-
     private val basketService: BasketService by lazy {
         BasketServiceImpl()
     }
