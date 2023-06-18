@@ -1,7 +1,6 @@
 package com.example.deliveryprojecttest.presentation.screens.adapter.categoryscreen
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.deliveryprojecttest.domain.model.TestModel
 
 class TegDiffUtils(private val oldList: List<String>, private val newList: List<String>) :
     DiffUtil.Callback() {

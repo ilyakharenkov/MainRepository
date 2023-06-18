@@ -53,7 +53,7 @@ class BasketScreenFragment : Fragment(R.layout.fragment_basket_screen) {
 
     private fun initButton() {
         binding.btnBie.setOnClickListener {
-            //TODO
+
         }
     }
 

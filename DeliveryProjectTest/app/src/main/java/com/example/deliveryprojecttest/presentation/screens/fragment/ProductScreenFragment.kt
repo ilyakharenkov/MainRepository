@@ -9,6 +9,8 @@ import com.bumptech.glide.Glide
 import com.example.deliveryprojecttest.Di
 import com.example.deliveryprojecttest.R
 import com.example.deliveryprojecttest.databinding.FragmentProductScreenBinding
+import com.example.deliveryprojecttest.domain.model.Dishes
+import com.example.deliveryprojecttest.domain.model.InformationDishes
 import com.example.deliveryprojecttest.presentation.screens.mvvm.ProductViewModel
 import com.example.deliveryprojecttest.presentation.screens.mvvm.ProductViewModelFactory
 
@@ -40,9 +42,8 @@ class ProductScreenFragment : DialogFragment(R.layout.fragment_product_screen) {
     }
 
     private fun resultOfCategoryScreen() {
-        val id = arguments?.getInt(KEY_ID)
-        if (id != null) {
-            viewModel.getById(id = id)
+        arguments?.getInt(KEY_ID)?.let {
+            viewModel.resultId(id = it)
         }
     }
 

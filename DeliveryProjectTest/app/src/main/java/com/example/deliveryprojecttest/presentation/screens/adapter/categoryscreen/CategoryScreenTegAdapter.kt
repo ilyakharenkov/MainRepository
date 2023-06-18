@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.deliveryprojecttest.databinding.ItemTegBinding
-import com.example.deliveryprojecttest.domain.model.TestModel
 
 class CategoryScreenTegAdapter : RecyclerView.Adapter<CategoryScreenTegAdapter.CategoryScreenTegViewHolder>() {
 

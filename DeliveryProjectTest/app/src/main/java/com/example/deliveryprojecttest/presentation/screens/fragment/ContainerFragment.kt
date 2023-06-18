@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupWithNavController
 import com.example.deliveryprojecttest.R
 import com.example.deliveryprojecttest.databinding.FragmentContainerBinding
 
@@ -23,7 +24,7 @@ class ContainerFragment : Fragment(R.layout.fragment_container) {
     }
 
     private fun initBottomNavigationView() {
-        NavigationUI.setupWithNavController(binding.bottomNavigationView, navController)
+        binding.bottomNavigationView.setupWithNavController(navController)
     }
 
 }

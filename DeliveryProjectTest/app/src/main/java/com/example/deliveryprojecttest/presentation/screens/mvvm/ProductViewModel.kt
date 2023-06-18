@@ -15,14 +15,25 @@ class ProductViewModel(
     private val getDishesUseCase: GetDishesUseCase
 ) : ViewModel() {
 
+    private val _resultId = MutableLiveData<Int>()
+    val resultId: LiveData<Int> = _resultId
+
     private val _dishes = MutableLiveData<Dishes>()
     val dishes: LiveData<Dishes> = _dishes
 
-    fun getById(id: Int){
+    init {
+        getById()
+    }
+
+    fun resultId(id: Int){
+        _resultId.value = id
+    }
+
+    private fun getById(){
         viewModelScope.launch {
             val result = getDishesUseCase.execute().dishes.firstOrNull {
-                it.id == id
-            } ?: throw IllegalArgumentException()
+                it.id == _resultId.value
+            } ?: return@launch
             _dishes.value = result
         }
     }

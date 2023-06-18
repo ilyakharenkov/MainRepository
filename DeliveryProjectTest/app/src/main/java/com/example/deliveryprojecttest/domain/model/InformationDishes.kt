@@ -4,7 +4,8 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class TestModel(
+data class InformationDishes(
+    val id: Int,
     val name: String,
     val price: Int,
     val weight: Int,

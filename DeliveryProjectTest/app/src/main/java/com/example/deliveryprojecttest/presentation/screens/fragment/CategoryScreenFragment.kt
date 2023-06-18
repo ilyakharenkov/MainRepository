@@ -12,7 +12,7 @@ import com.example.deliveryprojecttest.Di
 import com.example.deliveryprojecttest.R
 import com.example.deliveryprojecttest.databinding.FragmentCategoryScreenBinding
 import com.example.deliveryprojecttest.domain.model.Dishes
-import com.example.deliveryprojecttest.domain.model.TestModel
+import com.example.deliveryprojecttest.domain.model.InformationDishes
 import com.example.deliveryprojecttest.presentation.screens.adapter.categoryscreen.CategoryScreenDishesAdapter
 import com.example.deliveryprojecttest.presentation.screens.adapter.categoryscreen.CategoryScreenTegAdapter
 import com.example.deliveryprojecttest.presentation.screens.mvvm.CategoryViewModel
@@ -35,7 +35,7 @@ class CategoryScreenFragment : Fragment(R.layout.fragment_category_screen) {
         initAdapterDishes()
         initAdapterTeg()
         initObserver()
-        resultOfMainScreen()
+        initCategoryName()
         initPhoto()
     }
 
@@ -72,13 +72,18 @@ class CategoryScreenFragment : Fragment(R.layout.fragment_category_screen) {
         }
     }
 
-    private fun resultOfMainScreen() {
-        val i = arguments?.getString(KEY_NAME_CATEGORY)
-        binding.categoryName.text = i
+    private fun initCategoryName() {
+        arguments?.getString(KEY_NAME_CATEGORY)?.let {
+            viewModel.resultName(name = it)
+        }
+        viewModel.resultName.observe(viewLifecycleOwner) {
+            binding.categoryName.text = it
+        }
     }
 
-    private fun mapTestModel(dishes: Dishes): TestModel {
-        return TestModel(
+    private fun mapInformationDishes(dishes: Dishes): InformationDishes {
+        return InformationDishes(
+            id = dishes.id,
             name = dishes.name,
             price = dishes.price,
             weight = dishes.weight,
@@ -95,7 +100,7 @@ class CategoryScreenFragment : Fragment(R.layout.fragment_category_screen) {
             .into(binding.userPhoto)
     }
 
-    companion object{
+    companion object {
         const val KEY_NAME_CATEGORY = "KEY_NAME_CATEGORY"
     }
 

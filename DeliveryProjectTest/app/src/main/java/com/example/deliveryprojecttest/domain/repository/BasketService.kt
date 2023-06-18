@@ -1,6 +1,5 @@
 package com.example.deliveryprojecttest.domain.repository
 
-import com.example.deliveryprojecttest.data.service.BasketObserver
 import com.example.deliveryprojecttest.domain.model.Dishes
 
 interface BasketService {
@@ -8,5 +7,9 @@ interface BasketService {
     fun addToBasket(dishes: Dishes)
 
     fun deleteOfBasket(dishes: Dishes)
+
+    fun addListener(listObserver: (list: List<Dishes>) -> Unit)
+
+    fun removeListener(listObserver: (list: List<Dishes>) -> Unit)
 
 }
