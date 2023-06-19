@@ -2,7 +2,6 @@ package com.example.deliveryprojecttest.presentation.screens.fragment
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -42,10 +41,6 @@ class BasketScreenFragment : Fragment(R.layout.fragment_basket_screen) {
         adapter = BasketScreenAdapter(
             onClickSum = {
                 viewModel.addDishes(it)
-                viewModel.countDishes.observe(viewLifecycleOwner) {c ->
-                    Toast.makeText(requireContext(), "$c", Toast.LENGTH_SHORT).show()
-                }
-
             },
             onClickDiff = {
                 viewModel.deleteDishes(it)
