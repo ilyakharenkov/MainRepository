@@ -6,7 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.deliveryprojecttest.domain.model.Dishes
 import com.example.deliveryprojecttest.domain.usecase.GetDishesUseCase
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class CategoryViewModel(private val getDishesUseCase: GetDishesUseCase) : ViewModel() {
 

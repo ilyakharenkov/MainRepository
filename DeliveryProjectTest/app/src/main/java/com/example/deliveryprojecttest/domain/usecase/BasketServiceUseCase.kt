@@ -2,6 +2,7 @@ package com.example.deliveryprojecttest.domain.usecase
 
 import com.example.deliveryprojecttest.domain.model.Dishes
 import com.example.deliveryprojecttest.domain.repository.BasketService
+import kotlinx.coroutines.flow.Flow
 
 class BasketServiceUseCase(private val basketService: BasketService) {
 
@@ -17,12 +18,8 @@ class BasketServiceUseCase(private val basketService: BasketService) {
         return basketService.checkCount()
     }
 
-    fun addListener(listObserver: (list: List<Dishes>)->Unit){
-        basketService.addListener(listObserver = listObserver)
-    }
-
-    fun removeListener(listObserver: (list: List<Dishes>) ->Unit ){
-        basketService.removeListener(listObserver = listObserver)
+    fun listenerCurrentList(): Flow<List<Dishes>> {
+        return basketService.listenerCurrentList()
     }
 
 }

@@ -2,6 +2,12 @@ package com.example.deliveryprojecttest.data.service
 
 import com.example.deliveryprojecttest.domain.model.Dishes
 import com.example.deliveryprojecttest.domain.repository.BasketService
+import kotlinx.coroutines.channels.BufferOverflow
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.buffer
+import kotlinx.coroutines.flow.callbackFlow
+import java.nio.Buffer
 
 
 /**
@@ -42,13 +48,17 @@ class BasketServiceImpl : BasketService {
         return checkCount
     }
 
-    override fun addListener(listObserver: (list: List<Dishes>) -> Unit) {
-        observable.add(listObserver)
-        update()
-    }
-
-    override fun removeListener(listObserver: (list: List<Dishes>) -> Unit) {
-        observable.remove(listObserver)
+    override fun listenerCurrentList(): Flow<List<Dishes>> {
+        return callbackFlow {
+            val listeners: (list: List<Dishes>) -> Unit = {
+                trySend(it)
+            }
+            observable.add(listeners)
+            update()
+            awaitClose {
+                observable.remove(listeners)
+            }
+        }
     }
 
     private fun update(){

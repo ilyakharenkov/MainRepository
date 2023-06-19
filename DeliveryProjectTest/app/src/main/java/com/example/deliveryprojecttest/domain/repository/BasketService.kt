@@ -1,6 +1,7 @@
 package com.example.deliveryprojecttest.domain.repository
 
 import com.example.deliveryprojecttest.domain.model.Dishes
+import kotlinx.coroutines.flow.Flow
 
 interface BasketService {
 
@@ -10,8 +11,6 @@ interface BasketService {
 
     fun checkCount(): Int
 
-    fun addListener(listObserver: (list: List<Dishes>) -> Unit)
-
-    fun removeListener(listObserver: (list: List<Dishes>) -> Unit)
+    fun listenerCurrentList(): Flow<List<Dishes>>
 
 }
