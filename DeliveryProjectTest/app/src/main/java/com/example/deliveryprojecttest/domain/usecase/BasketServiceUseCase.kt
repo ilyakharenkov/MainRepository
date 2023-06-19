@@ -13,6 +13,10 @@ class BasketServiceUseCase(private val basketService: BasketService) {
         basketService.deleteOfBasket(dishes = dishes)
     }
 
+    fun checkCount(): Int {
+        return basketService.checkCount()
+    }
+
     fun addListener(listObserver: (list: List<Dishes>)->Unit){
         basketService.addListener(listObserver = listObserver)
     }

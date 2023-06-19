@@ -2,6 +2,7 @@ package com.example.deliveryprojecttest.presentation.screens.fragment
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -9,14 +10,12 @@ import com.bumptech.glide.Glide
 import com.example.deliveryprojecttest.Di
 import com.example.deliveryprojecttest.R
 import com.example.deliveryprojecttest.databinding.FragmentBasketScreenBinding
-import com.example.deliveryprojecttest.domain.model.Dishes
 import com.example.deliveryprojecttest.presentation.screens.adapter.basketscreen.BasketScreenAdapter
 import com.example.deliveryprojecttest.presentation.screens.mvvm.BasketViewModel
 import com.example.deliveryprojecttest.presentation.screens.mvvm.BasketViewModelFactory
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
-import kotlin.random.Random
 
 class BasketScreenFragment : Fragment(R.layout.fragment_basket_screen) {
 
@@ -40,7 +39,17 @@ class BasketScreenFragment : Fragment(R.layout.fragment_basket_screen) {
     }
 
     private fun initAdapter() {
-        adapter = BasketScreenAdapter()
+        adapter = BasketScreenAdapter(
+            onClickSum = {
+                viewModel.addDishes(it)
+                viewModel.countDishes.observe(viewLifecycleOwner) {c ->
+                    Toast.makeText(requireContext(), "$c", Toast.LENGTH_SHORT).show()
+                }
+
+            },
+            onClickDiff = {
+                viewModel.deleteDishes(it)
+            })
         binding.rcViewBasket.layoutManager = LinearLayoutManager(requireContext())
         binding.rcViewBasket.adapter = adapter
     }
@@ -56,7 +65,6 @@ class BasketScreenFragment : Fragment(R.layout.fragment_basket_screen) {
 
         }
     }
-
 
     /**
      * FIX repeat code

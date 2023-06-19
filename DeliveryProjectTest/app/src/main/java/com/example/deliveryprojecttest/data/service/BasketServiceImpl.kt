@@ -20,8 +20,7 @@ class BasketServiceImpl : BasketService {
             it.id == dishes.id
         }
         if(di == dishes) {
-            checkCount++
-            update()
+            checkCount()
         } else {
             list = ArrayList(list)
             list.add(dishes)
@@ -34,6 +33,13 @@ class BasketServiceImpl : BasketService {
         list = ArrayList(list)
         list.removeAt(id)
         update()
+    }
+
+    override fun checkCount(): Int {
+        var count = checkCount
+        count++
+        checkCount = count
+        return checkCount
     }
 
     override fun addListener(listObserver: (list: List<Dishes>) -> Unit) {

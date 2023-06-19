@@ -50,6 +50,7 @@ object Di {
     private val api: Api by lazy {
         retrofit.create(Api::class.java)
     }
+
 }
 
 /**

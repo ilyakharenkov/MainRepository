@@ -8,6 +8,8 @@ interface BasketService {
 
     fun deleteOfBasket(dishes: Dishes)
 
+    fun checkCount(): Int
+
     fun addListener(listObserver: (list: List<Dishes>) -> Unit)
 
     fun removeListener(listObserver: (list: List<Dishes>) -> Unit)

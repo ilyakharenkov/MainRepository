@@ -10,7 +10,7 @@ import com.example.deliveryprojecttest.R
 import com.example.deliveryprojecttest.databinding.ItemBasketBinding
 import com.example.deliveryprojecttest.domain.model.Dishes
 
-class BasketScreenAdapter : RecyclerView.Adapter<BasketScreenAdapter.BasketScreenViewHolder>() {
+class BasketScreenAdapter(private val onClickSum:(dishes: Dishes) -> Unit, private val onClickDiff:(dishes: Dishes) -> Unit) : RecyclerView.Adapter<BasketScreenAdapter.BasketScreenViewHolder>() {
 
     var list: List<Dishes> = emptyList()
         set(value) {
@@ -24,7 +24,7 @@ class BasketScreenAdapter : RecyclerView.Adapter<BasketScreenAdapter.BasketScree
 
         private val binding = ItemBasketBinding.bind(view)
 
-        fun bind(dishes: Dishes) {
+        fun bind(dishes: Dishes, onClickSum:(dishes: Dishes) -> Unit, onClickDiff:(dishes: Dishes) -> Unit) {
 
             Glide
                 .with(binding.imageView.context)
@@ -35,11 +35,12 @@ class BasketScreenAdapter : RecyclerView.Adapter<BasketScreenAdapter.BasketScree
             binding.tvNameDishes.text = dishes.name
             binding.tvPriceDishes.text = dishes.price.toString()
             binding.tvWeightDishes.text = dishes.weight.toString()
-            binding.btnDiff.setOnClickListener {
 
+            binding.btnDiff.setOnClickListener {
+                onClickDiff(dishes)
             }
             binding.btnSum.setOnClickListener {
-
+                onClickSum(dishes)
             }
         }
 
@@ -56,7 +57,7 @@ class BasketScreenAdapter : RecyclerView.Adapter<BasketScreenAdapter.BasketScree
     }
 
     override fun onBindViewHolder(basketScreenViewHolder: BasketScreenViewHolder, position: Int) {
-        basketScreenViewHolder.bind(list[position])
+        basketScreenViewHolder.bind(list[position], onClickSum, onClickDiff)
     }
 
 }
