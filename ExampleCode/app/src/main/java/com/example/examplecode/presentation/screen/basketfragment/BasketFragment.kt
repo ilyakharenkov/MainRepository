@@ -1,10 +1,11 @@
-package com.example.examplecode
+package com.example.examplecode.presentation.screen.basketfragment
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import com.example.examplecode.R
 
-class AccountFragment : Fragment(R.layout.fragment_account) {
+class BasketFragment : Fragment(R.layout.fragment_basket) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
